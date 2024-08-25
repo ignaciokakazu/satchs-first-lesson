@@ -18,7 +18,7 @@ export const viewFret = (htmlElement, config) => {
     for (let i=0;i<strings;i++) {
         const cuerda = document.createElementNS('http://www.w3.org/2000/svg', 'line')
         cuerda.setAttribute('x1', 40)
-        cuerda.setAttribute('x2', 1000)
+        cuerda.setAttribute('x2', 960)
         cuerda.setAttribute('y1', i * 25 + 80)
         cuerda.setAttribute('y2', i * 25 + 80)
         cuerda.setAttribute('stroke', stringsColor)

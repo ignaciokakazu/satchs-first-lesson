@@ -1,5 +1,6 @@
 import { getNotes } from "./model.js";
 import {viewStringFret, dotRemove, dotCreate} from './view.js';
+import fretboard from "./fretboard/controller.js";
 
 let respuesta = ''
 
@@ -10,14 +11,33 @@ function getRandomInt(min, max) {
 }
 
 function selecciona() {
+    fretboard({strings: 6,
+        stringsColor: 'black', 
+        inlays: 'fender',
+        bgcolor: 'white',
+        fretMaterial: '',
+        fretEnds: 22,
+        title: 'Satchs first lesson',
+        subtitle: '',
+        // notes: {
+        //     afination: 'standar', //
+        //     labeled: 'no', //notes, distancias
+        //     color: false,// set de colores,
+        //     note: [{
+        //         f: 2,
+        //         s: 1
+        //     }] //par [cuerda, traste]
+        })
     const array = getNotes()
     const random = getRandomInt(0, array.length)
     const cuerda = array[random][0]
     const traste = array[random][1]
-    const message = [cuerda, traste]
+    
     // document.getElementById('cuerda').innerText = cuerda
     // document.getElementById('traste').innerText = traste
     respuesta = array[random][2]
+    
+    document.getElementById('respuesta').innerText = traste==0? 'Quick! Its the open ' + cuerda + ' string' : "Don't waste my time: the " + cuerda + ' string, ' + traste + ' fret'
 
     dotRemove('punto')
 
@@ -31,7 +51,7 @@ function enviar() {
     if (sol === respuesta) {
         document.getElementById('respuesta').innerText = 'Ok'
     } else {
-        document.getElementById('respuesta').innerText = 'No. ' + respuesta
+        document.getElementById('respuesta').innerText = 'Wrong! Its ' + respuesta
     }
 }
 

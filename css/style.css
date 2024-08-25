@@ -2,8 +2,14 @@ body {
     background-color: black;
     color: white;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
   }
 
 #fretboard {
     background-color: white;
+}
+
+button {
+  background-color: #8467a6;
+  color: #f9ec5d
 }
